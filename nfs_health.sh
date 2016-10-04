@@ -58,7 +58,7 @@ case $OS in
 		echo $(date) "*****STARTING RECOVERY ACTION*****" >> $logfile
 		
 		#Kill open file handles for that mountpoint
-		file_handle=$(lsof | egrep "$mountpoint" |grep mysqld| awk '{print $2}' | sort -fu)
+		file_handle=$(lsof | egrep "$mountpoint" | awk '{print $2}' | sort -fu)
                 for line in $file_handle
                 do
                         kill -9 $line
